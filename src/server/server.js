@@ -1,8 +1,13 @@
 // manejo del servidor
+/*
+si fuese un servicio web, como lo fue antes de su migracion, seria:
 const express = require('express');// guardar en una constante lo traidode la dependencia de express que debe estar instalado previamente en el proyecto
 const path = require('path');// propio de node
+*/
+import express from 'express';// guardar en una constante lo traidode la dependencia de express que debe estar instalado previamente en el proyecto
+import path from 'path';// propio de node
 
-const startServer = (options) => {
+export const startServer = (options) => {
     const { port, public_path = 'public'} = options //options, que llega desde el app.js, le asigna un valora port y path para configurar el servidor
     const app = express(); // se crea una instancia de express y se guarda en una constante app ejecutado
 
@@ -21,4 +26,5 @@ const startServer = (options) => {
     } ) ;
 }
 
-module.exports = { startServer } //exporta la funcion startServer para que pueda ser utilizada en otro archivo
+/* esto no se exporta asi porque ahora no es el mismo archivo que antes, ahora es un modulo que se exporta
+module.exports = { startServer } //exporta la funcion startServer para que pueda ser utilizada en otro archivo*/
